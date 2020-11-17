@@ -1,0 +1,91 @@
+﻿
+.ornament 
+{
+    font-family: "Source Code Pro", monospace;
+    font-weight:bold;
+    font-size:large;
+}
+
+.green {
+    color: darkgreen;
+    text-shadow: 0px 0px 10px darkgreen;
+}
+
+.yellow {
+    color: yellow;
+    text-shadow: 0px 0px 10px yellow;
+}
+
+.red {
+    color: #690d0d;
+    text-shadow: 0px 0px 10px #690d0d;
+}
+
+.brown {
+    color: #593D02;
+    text-shadow: 0px 0px 10px #593D02;
+}
+
+.white
+{
+    color:white;
+    text-shadow: 0px 0px  10px white;
+}
+
+#snow {
+    height: 650px;
+    width: -webkit-fill-available;
+}
+
+.asd{
+    width:670px;
+}
+
+p {
+    width: 600px;
+}
+
+#blazor-error-ui{
+    display:none !important;
+}
+
+@keyframes glowingred {
+    0% {
+        text-shadow: 0 0 -5px #690d0d;
+    }
+
+    40% {
+        text-shadow: 0 0 10px #690d0d;
+    }
+
+    60% {
+        text-shadow: 0 0 10px #690d0d;
+    }
+
+    100% {
+        text-shadow: 0 0 -5px #690d0d;
+    }
+}
+
+@keyframes glowingyellow {
+    0% {
+        text-shadow: 0 0 -5px yellow;
+    }
+
+    40% {
+        text-shadow: 0 0 10px yellow;
+    }
+
+    60% {
+        text-shadow: 0 0 10px yellow;
+    }
+
+    100% {
+        text-shadow: 0 0 -5px yellow;
+    }
+}
+
+
+body {
+    background-color: #050D15;
+}

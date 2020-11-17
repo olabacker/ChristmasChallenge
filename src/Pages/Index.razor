@@ -1,0 +1,136 @@
+﻿@page "/"
+
+<canvas id="snow"  style="position:absolute;">
+</canvas>
+
+<div class="container-fluid">
+
+
+
+    @foreach (var test in christmasTree)
+    {
+        <div class="text-center">
+            @foreach (var chara in test.Row)
+            {
+                if (chara == "*")
+                {
+                    <span class="ornament yellow">@chara</span>
+                }
+                else if (chara == "<" || chara == ">" || chara == "^" || chara == "v")
+                {
+                    <span class="ornament green">@chara</span>
+                }
+                else if (chara == "O")
+                {
+                    <span class="ornament red">@chara</span>
+                }
+                else if (chara == "|")
+                {
+                    <span class="ornament brown">@chara</span>
+                }
+                else
+                {
+                    <span class="ornament">@chara</span>
+                }
+            }
+        </div>
+    }
+
+    <div>
+        <div class="text-center">
+            <span class="ornament white">---------------------------------------------------------------------</span>
+        </div>
+
+        <div class="text-center container asd">
+            <h2 class="ornament red" red>Welcome to the Christmas challenge!</h2>
+
+            <p class="ornament white">Santa is sitting at his throne in Rovaniemi.  </p>
+
+            <p class="ornament white">Because he got bored of delivering presents to houses he decided to send his four elves to do it for him instead while giving directions via radio to each one of them.</p>
+
+            <p class="ornament white">The houses are all in infinite two-dimensional grid of houses and each elf is sent to separate parts of the world and santa is sure that they will not intersect!</p>
+
+            <p class="ornament white">Santa gives each elf directions where to go and in turn they move and deliver a present to the house to which they moved.</p>
+
+            <p class="ornament white">While not having to do the hard work himself santa saw his opportunity to enjoy a couple of eggnogs. This resulted in him giving a couple of faulty instructions to the elves.</p>
+
+            <p class="ornament white">These faulty instructions caused the elves to possibly end up visiting some houses more than once during their delivery route.</p>
+
+            <p class="ornament white">An interesting question arose as santa kept relishing his eggnogs.</p>
+
+            <p class="ornament green">Which elf ends up delivering at least one present to the most amount of houses?</p>
+
+            <p class="ornament white">Santa muttered a couple more words out loud before issuing the directions; "Thy interfaces which implemented should be, can be found <a href="https://olabacker.se/christmas/input/interfaces.cs">here</a>"</p>
+
+
+            <h3 class="ornament white" style="text-align:left;">Commands given to elves:</h3>
+            <ul class="ornament white" style="width:650px; text-align:left;">
+                <li><a href="https://olabacker.se/christmas/input/Polka.txt">Polka</a></li>
+                <li><a href="https://olabacker.se/christmas/input/Snowdrop.txt">Snowdrop</a></li>
+                <li><a href="https://olabacker.se/christmas/input/Cinnamon.txt">Cinnamon</a></li>
+                <li><a href="https://olabacker.se/christmas/input/Jingles.txt">Jingles</a></li>
+            </ul>
+
+        </div>
+
+        <div class="text-center">
+            <span class="ornament white">---------------------------------------------------------------------</span>
+        </div>
+    </div>
+
+
+</div>
+
+<canvas></canvas>
+
+@code
+{
+    List<TreeRow> christmasTree = new List<TreeRow>();
+
+    Dictionary<int, string> chars = new Dictionary<int, string>()
+{
+        {0, "<" },
+        {1, ">" },
+        {2, "v" },
+        {3, "^" },
+        {4, "*" },
+        {5, "O" }
+    };
+
+    protected override async Task OnInitializedAsync()
+    {
+        Random rand = new Random();
+
+
+        for (int i = -1; i < 20; i++)
+        {
+            TreeRow row = new TreeRow();
+
+            for (int j = 0; j < (i + 2); j++)
+            {
+                row.Row.Add(chars[rand.Next(0, 6)]);
+            }
+
+            christmasTree.Add(row);
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            TreeRow row = new TreeRow();
+
+
+            row.Row.Add("|");
+            row.Row.Add(" ");
+            row.Row.Add(" ");
+            row.Row.Add("|");
+
+            christmasTree.Add(row);
+        }
+    }
+
+
+    private class TreeRow
+    {
+        public List<string> Row { get; set; } = new List<string>();
+    }
+}
